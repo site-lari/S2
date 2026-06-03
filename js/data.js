@@ -1,6 +1,6 @@
 export const appData = {
     config: {
-        startDate: "2025-06-03",
+        startDate: "2025-06-04",
         audioSrc: "./musica.mp3", // Lembre de alterar
         startVolume: 0.5
     },
