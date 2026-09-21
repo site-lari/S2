@@ -41,12 +41,12 @@ export class HubComponent {
     },
     {
       id: 'novo-aniversario',
-      icon: 'fa-gift',
+      icon: 'fa-sun',
       title: '02/10/2026',
-      description: 'Mais um ano ao seu lado! O próximo presente preparado especialmente para a garota mais incrível.',
+      description: 'A luz dos seus dias: bilhetinhos com pequenos instantes do cotidiano, carta em linho e velinha de aniversário.',
       route: '/novo-aniversario',
-      buttonText: 'Descobrir Surpresa',
-      accentGradient: 'linear-gradient(135deg, #7928ca 0%, #ff0080 100%)'
+      buttonText: 'Ver Presente',
+      accentGradient: 'linear-gradient(135deg, #c87d69 0%, #e5a97b 100%)'
     }
   ];
 }
