@@ -1,0 +1,243 @@
+.hub-container {
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 10%, #fff0f5 0%, #fdf5f8 50%, #f7e6ed 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'Nunito', 'Outfit', sans-serif;
+  padding: 60px 20px 40px;
+  box-sizing: border-box;
+}
+
+.background-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+  }
+
+  .orb-1 {
+    width: 400px;
+    height: 400px;
+    background: #ff758c;
+    top: -100px;
+    left: -100px;
+  }
+
+  .orb-2 {
+    width: 450px;
+    height: 450px;
+    background: #ffb347;
+    top: 30%;
+    right: -150px;
+  }
+
+  .orb-3 {
+    width: 350px;
+    height: 350px;
+    background: #c77dff;
+    bottom: -100px;
+    left: 20%;
+  }
+}
+
+.hub-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hub-header {
+  text-align: center;
+  margin-bottom: 50px;
+
+  .top-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(255, 77, 133, 0.12);
+    border-radius: 20px;
+    color: #ff4d85;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+
+    i {
+      font-size: 0.75rem;
+    }
+  }
+
+  .main-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2b1625;
+    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #665261;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.cards-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.gift-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 12px 35px rgba(180, 100, 130, 0.1);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(220, 80, 120, 0.2);
+    border-color: rgba(255, 180, 200, 0.6);
+
+    .enter-btn {
+      transform: scale(1.04);
+      box-shadow: 0 6px 18px rgba(255, 77, 133, 0.35);
+
+      i {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 8px;
+  }
+
+  .badge {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .music-tag {
+    font-size: 0.8rem;
+    color: #887282;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    i {
+      color: #ff4d85;
+      font-size: 0.75rem;
+    }
+  }
+
+  .icon-bubble {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2b1625;
+    margin: 0 0 10px;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: #6d5b68;
+    line-height: 1.55;
+    flex-grow: 1;
+    margin: 0 0 28px;
+  }
+
+  .card-footer {
+    margin-top: auto;
+  }
+
+  .enter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+
+    i {
+      transition: transform 0.2s ease;
+    }
+  }
+}
+
+.hub-footer {
+  text-align: center;
+  color: #927a8c;
+  font-size: 0.9rem;
+  padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .hub-container {
+    padding: 40px 16px 30px;
+  }
+
+  .hub-header .main-title {
+    font-size: 2.1rem;
+  }
+
+  .cards-showcase {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

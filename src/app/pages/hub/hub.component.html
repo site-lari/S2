@@ -1,0 +1,59 @@
+<div class="hub-container">
+  <!-- Glowing subtle lights in background -->
+  <div class="background-decorations">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="hub-content">
+    <header class="hub-header">
+      <div class="top-tag">
+        <i class="fas fa-heart"></i>
+        <span>Nossas Memórias</span>
+        <i class="fas fa-heart"></i>
+      </div>
+      <h1 class="main-title">Nosso Cantinho ❤️</h1>
+      <p class="subtitle">
+        Cada presente é um pedacinho da nossa história que guardo com todo amor.
+        Escolha qual momento você gostaria de visitar:
+      </p>
+    </header>
+
+    <div class="cards-showcase">
+      @for (gift of gifts; track gift.id) {
+        <div class="gift-card" [routerLink]="gift.route">
+          <div class="card-glow" [style.background]="gift.accentGradient"></div>
+          
+          <div class="card-inner-box">
+            <div class="card-top-row">
+              <span class="badge" [style.background]="gift.badgeColor">{{ gift.badge }}</span>
+              <span class="music-tag">
+                <i class="fas fa-music"></i>
+                {{ gift.musicTag }}
+              </span>
+            </div>
+
+            <div class="icon-bubble" [style.background]="gift.accentGradient">
+              <i class="fas" [ngClass]="gift.icon"></i>
+            </div>
+
+            <h2 class="card-title">{{ gift.title }}</h2>
+            <p class="card-desc">{{ gift.description }}</p>
+
+            <div class="card-footer">
+              <span class="enter-btn" [style.background]="gift.accentGradient">
+                {{ gift.buttonText }}
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <footer class="hub-footer">
+      <p>Feito com todo amor do mundo por seu xuxuzinho ❤️</p>
+    </footer>
+  </div>
+</div>

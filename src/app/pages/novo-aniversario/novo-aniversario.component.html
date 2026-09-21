@@ -1,0 +1,46 @@
+<div class="novo-aniv-wrapper">
+  <div class="confetti-container">
+    <span class="confetti c1">✨</span>
+    <span class="confetti c2">🎉</span>
+    <span class="confetti c3">💖</span>
+    <span class="confetti c4">🎂</span>
+    <span class="confetti c5">✨</span>
+    <span class="confetti c6">🎈</span>
+  </div>
+
+  <div class="main-card">
+    <div class="badge-tag">Capítulo 2026 / Novo Aniversário 🎈</div>
+    
+    <h1 class="title">Mais um ano com você! 🎂✨</h1>
+    <p class="subtitle">
+      O tempo voa, mas o meu amor por você só cresce a cada segundo.
+    </p>
+
+    <div class="interactive-box">
+      <div class="gift-icon" (click)="toggleReveal()">
+        <i class="fas fa-gift"></i>
+      </div>
+      <p class="tap-hint">{{ revealed() ? 'Obrigado por ser tão maravilhosa!' : 'Toque no presente para abrir 🎁' }}</p>
+
+      @if (revealed()) {
+        <div class="secret-message">
+          <div class="heart-pulse">❤️</div>
+          <h2>Para a garota mais incrível do mundo</h2>
+          <p>
+            Mais um aniversário seu chegando, e mais um motivo para agradecer por ter você na minha vida.
+            Cada risada, cada conversa de madrugada e cada instante ao seu lado faz tudo valer a pena!
+          </p>
+          <p class="love-quote">
+            "Você é meu presente diário, e hoje quem comemora sou eu por ter você comigo."
+          </p>
+          <div class="author">— Com todo meu amor, seu xuxuzinho 💖</div>
+        </div>
+      }
+    </div>
+
+    <div class="custom-prompt-note">
+      <i class="fas fa-magic"></i>
+      <span>Este cantinho está pronto para adicionarmos novas fotos, cartas, quizzes ou qualquer ideia que queira colocar!</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="um-ano-wrapper">
+  <!-- Floating Hearts Background -->
+  <div id="hearts-container">
+    @for (heart of floatingHearts(); track $index) {
+      <i class="fas fa-heart floating-heart"
+         [style.left.vw]="heart.left"
+         [style.font-size.px]="heart.size"
+         [style.animation-duration.s]="heart.duration"
+         [style.animation-delay.s]="heart.delay">
+      </i>
+    }
+  </div>
+
+  <!-- Top Bar Audio Player -->
+  <div class="top-bar-player">
+    <audio #audioPlayer src="assets/um-ano/musica.mp3" loop preload="metadata"></audio>
+
+    <button class="circle-btn" (click)="togglePlay()" aria-label="Play/Pause">
+      <i class="fas" [class.fa-pause]="isPlaying()" [class.fa-play]="!isPlaying()"></i>
+    </button>
+
+    <div class="status-indicator" [class.playing]="isPlaying()">
+      <i class="fas" [class.fa-music]="isPlaying()" [class.fa-pause]="!isPlaying()"></i>
+      <span>{{ isPlaying() ? 'Tocando' : 'Pausado' }}</span>
+    </div>
+
+    <button class="circle-btn" (click)="toggleMute()" aria-label="Mute/Unmute">
+      <i class="fas" [class.fa-volume-mute]="isMuted()" [class.fa-volume-up]="!isMuted()"></i>
+    </button>
+  </div>
+
+  <!-- Main Content Container -->
+  <div class="container">
+    <header>
+      <h1>
+        <i class="fas fa-heart"></i> Um ano de nós
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart" style="font-size: 1.5rem; opacity: 0.8;"></i>
+      </h1>
+      <p>
+        365 dias de sorrisos, conversas, momentos e memórias que vou guardar para sempre.
+        Uma pequena homenagem a você e ao nosso ano juntos.
+      </p>
+    </header>
+
+    <div class="central-widgets">
+      <!-- Envelope -->
+      <div class="envelope-wrapper" (click)="openLetter()">
+        <div class="css-envelope">
+          <i class="fas fa-heart heart-seal"></i>
+        </div>
+        <p class="envelope-text">Toque para abrir 💌</p>
+      </div>
+
+      <!-- Counter Widget -->
+      <div class="widget counter-widget">
+        <i class="far fa-calendar-alt"></i>
+        <p>Dias juntos</p>
+        <div class="number">{{ daysCount() }}</div>
+        <p class="date-sub">{{ formattedStartDate() }}</p>
+      </div>
+    </div>
+
+    <!-- Cards Section -->
+    <h2 class="section-title"><i class="fas fa-sparkles"></i> Mensagens especiais</h2>
+    <p class="section-subtitle">Toque nos cards para revelar 💌</p>
+
+    <div class="cards-grid">
+      @for (card of cards(); track $index) {
+        <div class="card" [class.flipped]="card.flipped" (click)="toggleCard($index)">
+          <div class="card-inner">
+            <div class="card-front">{{ card.front }}</div>
+            <div class="card-back">{{ card.back }}</div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Timeline Section -->
+    <h2 class="section-title" style="margin-top: 60px;">Nossa linha do tempo 📖</h2>
+
+    <div class="timeline">
+      @for (item of timeline; track $index) {
+        <div class="timeline-item">
+          <div class="timeline-icon" [style.background]="item.color">
+            <i class="fas" [ngClass]="item.icon"></i>
+          </div>
+          <div class="timeline-content">
+            <span class="date">{{ item.date }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Letter Modal -->
+  @if (isLetterModalOpen()) {
+    <div class="modal" (click)="onBackdropClick($event)">
+      <div class="modal-content">
+        <span class="close-modal" (click)="closeLetter()">&times;</span>
+        <h2>Para você...</h2>
+        <div class="letter-body">
+          <p>
+            Primeiramente, quero agradecer a todos os momentos que tivemos juntos até hoje, cada filme,
+            cada vez que jogamos, cada conversa, passar tempo juntos deixou todos os meus dias muito mais
+            ricos e cheios de vida, meu amor..
+          </p>
+          <p>
+            Espero que tenhamos muitos outros anos assim, cheios de alegria, amor e memórias inesquecíveis.
+          </p>
+          <br>
+          <p>Com carinho,<br><strong>Seu bbzinho</strong></p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
