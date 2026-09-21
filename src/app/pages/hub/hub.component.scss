@@ -137,39 +137,7 @@
     }
   }
 
-  .card-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    gap: 8px;
-  }
 
-  .badge {
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 5px 12px;
-    border-radius: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .music-tag {
-    font-size: 0.8rem;
-    color: #887282;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    i {
-      color: #ff4d85;
-      font-size: 0.75rem;
-    }
-  }
 
   .icon-bubble {
     width: 58px;
