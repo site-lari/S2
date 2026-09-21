@@ -65,32 +65,4 @@
       </div>
     </div>
   </div>
-
-  <!-- Music player (sticky bottom) -->
-  <div id="music-player" class="music-player" aria-label="Music player">
-    <img src="assets/site-lari/download.jpeg" alt="Album cover" class="mp-cover" [class.playing]="isPlaying()">
-    <div class="mp-controls">
-      <button class="mp-play" [class.playing]="isPlaying()" (click)="togglePlay()" aria-label="Play/Pause">
-        {{ isPlaying() ? '❚❚' : '▶' }}
-      </button>
-      <div class="mp-meta">
-        <div class="mp-title">Let Down — Radiohead</div>
-        <div class="mp-artist">Radiohead</div>
-        <div class="mp-times">
-          <span>{{ currentTimeFormatted() }}</span> / <span>{{ durationFormatted() }}</span>
-        </div>
-        <div class="mp-progress" #progressBar (click)="onProgressClick($event)" aria-label="progress bar" role="progressbar">
-          <div class="mp-progress-filled" [style.width.%]="progressPercent()"></div>
-        </div>
-      </div>
-    </div>
-    <audio #audioPlayer
-      preload="metadata"
-      (timeupdate)="onAudioTimeUpdate()"
-      (loadedmetadata)="onAudioLoadedMetadata()"
-      (ended)="onAudioEnded()">
-      <source src="assets/site-lari/let-down.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
 </div>

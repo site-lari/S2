@@ -29,11 +29,7 @@ interface TimelineItem {
   templateUrl: './um-ano.component.html',
   styleUrl: './um-ano.component.scss'
 })
-export class UmAnoComponent implements OnInit, OnDestroy {
-  @ViewChild('audioPlayer') audioRef?: ElementRef<HTMLAudioElement>;
-
-  isPlaying = signal<boolean>(false);
-  isMuted = signal<boolean>(false);
+export class UmAnoComponent implements OnInit {
   isLetterModalOpen = signal<boolean>(false);
 
   daysCount = signal<number>(0);
@@ -62,10 +58,6 @@ export class UmAnoComponent implements OnInit, OnDestroy {
     this.generateFloatingHearts();
   }
 
-  ngOnDestroy(): void {
-    this.stopAudio();
-  }
-
   private calculateDays(): void {
     const startDate = new Date("2025-06-04T00:00:00");
     const today = new Date();
@@ -87,40 +79,6 @@ export class UmAnoComponent implements OnInit, OnDestroy {
       });
     }
     this.floatingHearts.set(hearts);
-  }
-
-  togglePlay(): void {
-    const audio = this.audioRef?.nativeElement;
-    if (!audio) return;
-
-    if (audio.paused) {
-      audio.volume = 0.5;
-      audio.play().then(() => {
-        this.isPlaying.set(true);
-      }).catch(err => {
-        console.log("Autoplay bloqueado pelo navegador:", err);
-      });
-    } else {
-      audio.pause();
-      this.isPlaying.set(false);
-    }
-  }
-
-  toggleMute(): void {
-    const audio = this.audioRef?.nativeElement;
-    if (!audio) return;
-
-    audio.muted = !audio.muted;
-    this.isMuted.set(audio.muted);
-  }
-
-  private stopAudio(): void {
-    const audio = this.audioRef?.nativeElement;
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-      this.isPlaying.set(false);
-    }
   }
 
   toggleCard(index: number): void {

@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map } from 'rxjs/operators';
+import { MusicPlayerComponent } from './components/music-player/music-player.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterLink, MusicPlayerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

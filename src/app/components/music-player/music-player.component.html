@@ -1,0 +1,124 @@
+<div class="player-root">
+  <!-- Playlist Drawer / Popover -->
+  @if (playerService.isPlaylistOpen()) {
+    <div class="playlist-popover">
+      <div class="popover-header">
+        <div class="header-title">
+          <i class="fas fa-heart text-pink"></i>
+          <span>Nossas Músicas</span>
+        </div>
+        <button class="close-popover-btn" (click)="playerService.closePlaylist()" aria-label="Fechar lista">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="track-list">
+        @for (track of playerService.tracks(); track track.id; let idx = $index) {
+          <div class="track-item"
+               [class.active]="playerService.currentTrackIndex() === idx"
+               (click)="selectTrack(idx)">
+            
+            <div class="track-cover-sm">
+              @if (track.cover) {
+                <img [src]="track.cover" [alt]="track.title" />
+              } @else {
+                <div class="cover-heart-fallback">
+                  <i class="fas fa-music"></i>
+                </div>
+              }
+              @if (playerService.currentTrackIndex() === idx && playerService.isPlaying()) {
+                <div class="equalizer-overlay">
+                  <span class="bar b1"></span>
+                  <span class="bar b2"></span>
+                  <span class="bar b3"></span>
+                </div>
+              }
+            </div>
+
+            <div class="track-info-sm">
+              <span class="t-title">{{ track.title }}</span>
+              <span class="t-sub">{{ track.subtitle }}</span>
+            </div>
+
+            @if (playerService.currentTrackIndex() === idx) {
+              <div class="now-playing-tag">
+                <i class="fas" [class.fa-volume-up]="playerService.isPlaying()" [class.fa-pause]="!playerService.isPlaying()"></i>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Main Persistent Player Bar -->
+  <div class="player-bar">
+    <!-- Left: Track Cover & Meta -->
+    <div class="player-left">
+      <div class="cover-wrapper" [class.spinning]="playerService.isPlaying()">
+        @if (playerService.currentTrack().cover) {
+          <img [src]="playerService.currentTrack().cover" [alt]="playerService.currentTrack().title" class="cover-img" />
+        } @else {
+          <div class="cover-heart-fallback">
+            <i class="fas fa-heart"></i>
+          </div>
+        }
+      </div>
+
+      <div class="track-meta">
+        <div class="track-title" [title]="playerService.currentTrack().title">
+          {{ playerService.currentTrack().title }}
+        </div>
+        <div class="track-subtitle">
+          {{ playerService.currentTrack().subtitle }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Playback Controls & Progress -->
+    <div class="player-center">
+      <div class="center-controls">
+        <button class="ctrl-btn sm" (click)="playerService.prevTrack()" title="Música anterior" aria-label="Música anterior">
+          <i class="fas fa-backward-step"></i>
+        </button>
+
+        <button class="ctrl-btn play-btn" (click)="playerService.togglePlay()" [title]="playerService.isPlaying() ? 'Pausar' : 'Tocar'" aria-label="Tocar ou Pausar">
+          <i class="fas" [class.fa-pause]="playerService.isPlaying()" [class.fa-play]="!playerService.isPlaying()"></i>
+        </button>
+
+        <button class="ctrl-btn sm" (click)="playerService.nextTrack()" title="Próxima música" aria-label="Próxima música">
+          <i class="fas fa-forward-step"></i>
+        </button>
+      </div>
+
+      <div class="progress-container">
+        <span class="time-label">{{ playerService.currentTimeFormatted() }}</span>
+
+        <div class="progress-bar-wrapper" #progressBar (click)="onSeek($event)">
+          <div class="progress-track">
+            <div class="progress-fill" [style.width.%]="playerService.progressPercent()"></div>
+          </div>
+        </div>
+
+        <span class="time-label">{{ playerService.durationFormatted() }}</span>
+      </div>
+    </div>
+
+    <!-- Right: Options (Volume/Mute & Playlist Button) -->
+    <div class="player-right">
+      <button class="icon-btn" (click)="playerService.toggleMute()" [title]="playerService.isMuted() ? 'Desmutar' : 'Mutar'" aria-label="Mutar ou desmutar">
+        <i class="fas" [class.fa-volume-mute]="playerService.isMuted()" [class.fa-volume-up]="!playerService.isMuted()"></i>
+      </button>
+
+      <button class="playlist-btn"
+              [class.open]="playerService.isPlaylistOpen()"
+              (click)="playerService.togglePlaylist()"
+              title="Escolher música"
+              aria-label="Escolher música">
+        <i class="fas fa-list-ul"></i>
+        <span class="playlist-label">Músicas</span>
+        <span class="track-count-badge">{{ playerService.tracks().length }}</span>
+      </button>
+    </div>
+  </div>
+</div>

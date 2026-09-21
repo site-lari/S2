@@ -11,24 +11,6 @@
     }
   </div>
 
-  <!-- Top Bar Audio Player -->
-  <div class="top-bar-player">
-    <audio #audioPlayer src="assets/um-ano/musica.mp3" loop preload="metadata"></audio>
-
-    <button class="circle-btn" (click)="togglePlay()" aria-label="Play/Pause">
-      <i class="fas" [class.fa-pause]="isPlaying()" [class.fa-play]="!isPlaying()"></i>
-    </button>
-
-    <div class="status-indicator" [class.playing]="isPlaying()">
-      <i class="fas" [class.fa-music]="isPlaying()" [class.fa-pause]="!isPlaying()"></i>
-      <span>{{ isPlaying() ? 'Tocando' : 'Pausado' }}</span>
-    </div>
-
-    <button class="circle-btn" (click)="toggleMute()" aria-label="Mute/Unmute">
-      <i class="fas" [class.fa-volume-mute]="isMuted()" [class.fa-volume-up]="!isMuted()"></i>
-    </button>
-  </div>
-
   <!-- Main Content Container -->
   <div class="container">
     <header>
