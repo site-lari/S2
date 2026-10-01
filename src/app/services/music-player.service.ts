@@ -25,7 +25,7 @@ export class MusicPlayerService {
     {
       id: 'let-down',
       title: 'Let Down (Choir Version)',
-      subtitle: 'Radiohead — Do 1º Aniversário',
+      subtitle: 'Radiohead - Choir Version',
       src: 'assets/site-lari/let-down.mp3',
       cover: 'assets/site-lari/download.jpeg'
     },

@@ -22,54 +22,31 @@ export class NovoAniversarioComponent {
   wishMade = signal<boolean>(false);
 
   notes = signal<NoteDetail[]>([
+ 
     {
       id: 1,
       tag: 'Detalhe nº 1',
-      title: 'O seu riso solto',
-      text: 'Aquele instante espontâneo em que você cai na gargalhada e o mundo inteiro ao redor parece muito mais leve e acolhedor.',
-      icon: 'fa-sun',
+      title: 'Nossas conversas bobas',
+      text: 'Falar de tudo e de nada, perder a noção do tempo nas madrugadas e ter a certeza de que qualquer assunto com você é divertido.',
+      icon: 'fa-mug-hot',
       isOpen: false
     },
     {
       id: 2,
       tag: 'Detalhe nº 2',
-      title: 'Nossas conversas bobas',
-      text: 'Falar de tudo e de nada, perder a noção do tempo nas madrugadas e ter a certeza de que qualquer assunto com você é bom.',
-      icon: 'fa-mug-hot',
-      isOpen: false
-    },
-    {
-      id: 3,
-      tag: 'Detalhe nº 3',
       title: 'A sua sensibilidade',
       text: 'O jeito atencioso e doce como você se importa com as coisas e as pessoas. É uma das qualidades que mais admiro em você.',
       icon: 'fa-feather-pointed',
       isOpen: false
     },
     {
-      id: 4,
-      tag: 'Detalhe nº 4',
+      id: 3,
+      tag: 'Detalhe nº 3',
       title: 'A paz da sua companhia',
-      text: 'Não precisar de grandes eventos; só de estarmos juntos, mesmo em silêncio ou fazendo coisas simples, já é o melhor momento do dia.',
+      text: 'Não precisar de grandes coisas; só de estarmos juntos, mesmo fazendo coisas simples, já é o melhor momento do dia.',
       icon: 'fa-heart',
       isOpen: false
     },
-    {
-      id: 5,
-      tag: 'Detalhe nº 5',
-      title: 'A sua determinação',
-      text: 'Ver você se esforçando, crescendo e conquistando o seu espaço. Tenho um orgulho imenso da mulher incrível que você é.',
-      icon: 'fa-star',
-      isOpen: false
-    },
-    {
-      id: 6,
-      tag: 'Detalhe nº 6',
-      title: 'O seu abraço',
-      text: 'O meu porto seguro favorito. O lugar onde tudo encontra calma e onde qualquer cansaço do dia simplesmente desaparece.',
-      icon: 'fa-leaf',
-      isOpen: false
-    }
   ]);
 
   toggleNote(index: number): void {
