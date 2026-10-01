@@ -30,11 +30,11 @@ export class MusicPlayerService {
       cover: 'assets/site-lari/download.jpeg'
     },
     {
-      id: 'um-ano',
-      title: 'Nossa Música Especial',
-      subtitle: 'Um Ano de Nós',
+      id: 'just-the-two-of-us',
+      title: 'Just the Two of Us',
+      subtitle: 'Grover Washington Jr. & Bill Withers',
       src: 'assets/um-ano/musica.mp3',
-      cover: ''
+      cover: 'assets/um-ano/just-the-two-of-us.jpg'
     }
   ]);
 
