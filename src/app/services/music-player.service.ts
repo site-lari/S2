@@ -16,6 +16,13 @@ export class MusicPlayerService {
 
   tracks = signal<Track[]>([
     {
+      id: 'no-one-noticed',
+      title: 'No One Noticed',
+      subtitle: 'The Marías',
+      src: 'assets/novo-aniversario/no-one-noticed.mp3',
+      cover: 'assets/novo-aniversario/no-one-noticed.jpg'
+    },
+    {
       id: 'let-down',
       title: 'Let Down (Choir Version)',
       subtitle: 'Radiohead — Do 1º Aniversário',
@@ -28,13 +35,6 @@ export class MusicPlayerService {
       subtitle: 'Um Ano de Nós',
       src: 'assets/um-ano/musica.mp3',
       cover: ''
-    },
-    {
-      id: 'no-one-noticed',
-      title: 'No One Noticed',
-      subtitle: 'The Marías',
-      src: 'assets/novo-aniversario/no-one-noticed.mp3',
-      cover: 'assets/novo-aniversario/no-one-noticed.jpg'
     }
   ]);
 

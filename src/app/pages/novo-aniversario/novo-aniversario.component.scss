@@ -418,20 +418,59 @@
 
 /* RESPONSIVE */
 @media (max-width: 600px) {
-  .section-header .main-title {
-    font-size: 2.1rem;
+  .morning-wrapper {
+    padding: 50px 14px 130px;
+  }
+
+  .page-content {
+    gap: 40px;
+  }
+
+  .section-header {
+    .main-title {
+      font-size: 1.85rem;
+    }
+
+    .intro-p {
+      font-size: 0.98rem;
+    }
+  }
+
+  .notes-section .notes-header {
+    margin-bottom: 20px;
+
+    .subheading {
+      font-size: 1.45rem;
+    }
+  }
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .letter-section .linen-letter {
-    padding: 36px 20px;
+    padding: 32px 18px;
+    border-radius: 20px;
 
     .letter-head .letter-salutation {
       font-size: 1.35rem;
     }
 
     .letter-body p {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
+      line-height: 1.7;
       text-align: left;
+      margin-bottom: 16px;
+    }
+  }
+
+  .candle-section .candle-card {
+    padding: 28px 16px;
+    border-radius: 20px;
+
+    .candle-title {
+      font-size: 1.25rem;
     }
   }
 }
