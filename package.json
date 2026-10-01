@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --base-href /S2/",
+    "deploy": "bash scripts/deploy.sh",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
