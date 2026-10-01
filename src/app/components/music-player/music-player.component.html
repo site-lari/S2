@@ -1,4 +1,20 @@
 <div class="player-root">
+  <!-- Autoplay Prompt Toast (Mobile & Desktop) -->
+  @if (playerService.hasAutoplayBlocked() && !playerService.isPlaying()) {
+    <div class="autoplay-toast" (click)="playerService.play()" role="button" aria-label="Toque para ouvir a música">
+      <div class="toast-pulse-icon">
+        <i class="fas fa-music"></i>
+      </div>
+      <div class="toast-text">
+        <span class="toast-title">Nossa Música ❤️</span>
+        <span class="toast-sub">Toque na tela para ouvir</span>
+      </div>
+      <div class="toast-play-badge">
+        <i class="fas fa-play"></i>
+      </div>
+    </div>
+  }
+
   <!-- Playlist Drawer / Popover -->
   @if (playerService.isPlaylistOpen()) {
     <div class="playlist-popover">
@@ -82,7 +98,11 @@
           <i class="fas fa-backward-step"></i>
         </button>
 
-        <button class="ctrl-btn play-btn" (click)="playerService.togglePlay()" [title]="playerService.isPlaying() ? 'Pausar' : 'Tocar'" aria-label="Tocar ou Pausar">
+        <button class="ctrl-btn play-btn"
+                [class.attention]="playerService.hasAutoplayBlocked() && !playerService.isPlaying()"
+                (click)="playerService.togglePlay()"
+                [title]="playerService.isPlaying() ? 'Pausar' : 'Tocar'"
+                aria-label="Tocar ou Pausar">
           <i class="fas" [class.fa-pause]="playerService.isPlaying()" [class.fa-play]="!playerService.isPlaying()"></i>
         </button>
 
